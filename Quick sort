@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define fio ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+int f2(int *arr,int left,int right)
+{
+    int mid = (left+right)/2;
+    swap(arr[left],arr[mid]);
+    int piv = arr[left];
+    int low = left+1;
+    int high = right;
+    while(low<=high)
+    {
+        while(arr[low]<piv) low++;
+        while(arr[high]>piv && low<=high) high--;
+        if(low>=high)break;
+        swap(arr[low],arr[high]);
+
+    }
+    swap(arr[left],arr[high]);
+    return high;
+}
+void f1(int *arr , int left , int right)
+{
+    if(left<right)
+    {
+        int piv_pos = f2(arr,left,right);
+        f1(arr,left,piv_pos-1);
+        f1(arr,piv_pos+1,right);
+    }
+}
+int main()
+{
+    fio;
+    int n,i;
+    cin>>n;
+    int arr[n];
+    for(i = 0 ; i<n ; i++) cin>>arr[i];
+    f1(arr,0,n-1);
+    for(i=0;i<n;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+return 0;
+}
