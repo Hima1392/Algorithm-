@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string s;
+    int a[26]={0};
+    int i,j=0,k;
+    cin>>s;
+    for(i=0;i<s.size();i++)
+    {
+        j=s[i]-'a';
+        a[j]++;
+    }
+    for(i=0;i<26;i++)
+    {
+        if(a[i]>0)
+           {
+             for(k=0;k<a[i];k++)
+                 printf("%c",'a'+i);
+           }
+    }
+}
