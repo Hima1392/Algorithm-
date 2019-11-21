@@ -1,0 +1,40 @@
+#include<stdio.h>
+main()
+{
+   int n, n1, n2, R, R1, div, div1, i, j, mul, sum;
+   printf("Enter the number = ");
+   scanf("%d",&n);
+   n1=n;
+   n2=n;
+   i=0;
+   while(div!=0)
+   {
+       i++;
+       R=n%10;
+       div=n/10;
+       printf("%d\n",R);
+       n=div;
+   }
+   sum=0;
+   while(div1!=0)
+   {
+       R1=n1%10;
+       mul=1;
+       for(j=0; j<i; j++)
+       {
+           mul=mul*R1;
+       }
+       div1=n1/10;
+       n1=div1;
+       sum=sum+mul;
+   }
+   printf("%d\n",sum);
+
+   if(n2==sum)
+    printf("Armstrong number");
+   else
+    printf("Not Armstrong number");
+   //printf("how many times repeat= %d",i );
+
+   return 0;
+}
